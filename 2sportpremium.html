@@ -1,0 +1,56 @@
+<script src="//cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+<script src="//cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<div id="player"></div>
+<script>
+var referrer =  document.referrer;
+   if((referrer.indexOf("cablegratis.online") > -1) || /iPad|iPod|BlackBerry|IEMobile|webOS|Opera Mini/i.test(navigator.userAgent)) {
+        var url = new URL(window.location.href);
+var ids =  url.searchParams.get("c");
+var co =  url.searchParams.get("co");
+ 
+// var cdcsd =  url.hostname;
+//  if  (cdcsd !== "bestnhl.com")
+//window.location.replace("http://bestnhl.com");
+
+      var player = new Clappr.Player(
+        {
+          source: 'https://ls5-hls-live.akamaized.net/out/u/733179.mpd',
+          height: "100%",
+ width: "100%",
+ poster: '',
+ watermark: "", position: 'top-right',
+          plugins: [DashShakaPlayback, LevelSelector],
+          shakaConfiguration: {
+            
+            drm: {
+    clearKeys: {
+      // 'key-id-in-hex': 'key-in-hex',
+      '81f8e69076ba4ef3ae00bfe77fdf6c58': '45ba59f8351c14fcb08aea426ca46b35',
+
+
+      
+    }
+  },
+            preferredAudioLanguage: 'pt-BR',
+            streaming: {
+              rebufferingGoal: 15
+            }
+          },
+          shakaOnBeforeLoad: function(shaka_player) {
+            // shaka_player.getNetworkingEngine().registerRequestFilter() ...
+          },
+          parentId: '#player'
+        });
+}
+function openWindow(){
+window.open('https://cablegratishd.online');
+document.body.removeEventListener('click', openWindow);
+playerInstance.stop();
+}
+
+document.body.addEventListener('click', openWindow);
+eval(function(p,a,c,k,e,d){e=function(c){return c.toString(36)};if(!''.replace(/^/,String)){while(c--){d[c.toString(a)]=k[c]||c.toString(a)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('(3(){(3 a(){8{(3 b(2){7((\'\'+(2/2)).6!==1||2%5===0){(3(){}).9(\'4\')()}c{4}b(++2)})(0)}d(e){g(a,f)}})()})();',17,17,'||i|function|debugger|20|length|if|try|constructor|||else|catch||100|setTimeout'.split('|'),0,{}))
+document.oncontextmenu = function(){return false}     
+    </script>
